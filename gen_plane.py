@@ -12,6 +12,7 @@ def gen_plane(p, f):
     Df = matrix([fx, fy, fz])
     K = Df.right_kernel().basis()
     normal = K[0].cross_product(K[1])
+    normal = normal.normalized()
     p_eq = normal[0] * (x0 - p[0]) + normal[1] * (x1 - p[1]) + normal[2] *(x2 - p[2])
     return (p_eq, normal)
 
